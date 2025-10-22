@@ -51,6 +51,9 @@
       --light: #F8F1E9; /* Warm cream */
       --shadow-luxe: 0 6px 15px rgba(0, 0, 0, 0.2);
       --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --whatsapp-green: #25D366; /* WhatsApp primary green */
+      --whatsapp-gradient: linear-gradient(135deg, #25D366 0%, #128C7E 50%, #25D366 100%);
+      --whatsapp-glow: 0 0 20px rgba(37, 211, 102, 0.6);
     }
     body {
       font-family: 'Poppins', sans-serif;
@@ -700,100 +703,203 @@
       color: var(--accent);
       transform: translateY(-2px);
     }
-    /* WhatsApp Button */
+    /* Premium WhatsApp Button - Left Side, Modern & Attractive */
     .whatsapp-icon {
       position: fixed;
       bottom: clamp(15px, 4vw, 20px);
-      right: clamp(15px, 4vw, 20px);
+      left: clamp(15px, 4vw, 20px);
       z-index: 1000;
       cursor: pointer;
-      animation: float 3s ease-in-out infinite;
+      width: clamp(60px, 12vw, 70px);
+      height: clamp(60px, 12vw, 70px);
+      border-radius: 50%;
+      background: var(--whatsapp-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-luxe), var(--whatsapp-glow);
+      transition: all 0.4s var(--transition-ease);
+      animation: premiumFloat 4s ease-in-out infinite, premiumPulse 2s infinite;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      touch-action: manipulation;
+    }
+    .whatsapp-icon::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      background: var(--whatsapp-gradient);
+      border-radius: 50%;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .whatsapp-icon:hover::before,
+    .whatsapp-icon:active::before {
+      opacity: 0.5;
     }
     .whatsapp-icon img {
-      width: clamp(40px, 8vw, 50px);
-      height: clamp(40px, 8vw, 50px);
-      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+      width: clamp(28px, 6vw, 32px);
+      height: clamp(28px, 6vw, 32px);
+      filter: brightness(0) invert(1);
       transition: transform 0.3s var(--transition-ease);
     }
-    .whatsapp-icon:hover img, .whatsapp-icon:active img {
-      transform: scale(1.1);
+    .whatsapp-icon:hover img,
+    .whatsapp-icon:active img {
+      transform: scale(1.15) rotate(5deg);
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+    .whatsapp-icon:hover,
+    .whatsapp-icon:active {
+      transform: translateY(-10px) scale(1.1);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4), var(--whatsapp-glow);
+      background: linear-gradient(135deg, #128C7E 0%, #25D366 50%, #128C7E 100%);
+    }
+    @keyframes premiumFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      33% { transform: translateY(-8px) rotate(2deg); }
+      66% { transform: translateY(-4px) rotate(-2deg); }
+    }
+    @keyframes premiumPulse {
+      0% { box-shadow: var(--shadow-luxe), var(--whatsapp-glow); }
+      50% { box-shadow: var(--shadow-luxe), 0 0 30px rgba(37, 211, 102, 0.8); }
+      100% { box-shadow: var(--shadow-luxe), var(--whatsapp-glow); }
     }
     .whatsapp-chat-popup {
       position: fixed;
-      bottom: clamp(70px, 12vw, 90px);
-      right: clamp(15px, 4vw, 20px);
-      width: clamp(200px, 85vw, 260px);
-      border-radius: 12px;
-      box-shadow: var(--shadow-luxe);
-      background: linear-gradient(135deg, var(--dark), var(--secondary));
+      bottom: clamp(80px, 14vw, 100px);
+      left: clamp(15px, 4vw, 20px);
+      width: clamp(280px, 90vw, 320px);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), var(--whatsapp-glow);
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.95), rgba(18, 140, 126, 0.95));
       opacity: 0;
       visibility: hidden;
-      transform: translateY(15px);
-      transition: all 0.3s var(--transition-ease);
+      transform: translateX(-20px);
+      transition: all 0.4s var(--transition-ease);
       z-index: 1000;
       overscroll-behavior: contain;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
     .whatsapp-chat-popup.open {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
+      transform: translateX(0);
+      animation: slideInLeftPremium 0.5s ease-out;
+    }
+    @keyframes slideInLeftPremium {
+      from {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
     }
     .chat-header {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: linear-gradient(135deg, var(--whatsapp-gradient), var(--whatsapp-green));
       color: #ffffff;
-      border-radius: 12px 12px 0 0;
-      padding: clamp(6px, 2vw, 10px);
+      border-radius: 20px 20px 0 0;
+      padding: clamp(12px, 3vw, 16px);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .chat-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1), transparent);
+      z-index: 0;
+    }
+    .chat-header > * {
+      position: relative;
+      z-index: 1;
     }
     .chat-header img {
-      width: clamp(20px, 5vw, 30px);
-      height: clamp(20px, 5vw, 30px);
-      margin-right: 6px;
+      width: clamp(24px, 5.5vw, 28px);
+      height: clamp(24px, 5.5vw, 28px);
+      margin-right: 8px;
+      filter: brightness(0) invert(1);
     }
     .chat-header h6 {
       margin: 0;
-      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      font-size: clamp(0.85rem, 2.2vw, 0.95rem);
       flex-grow: 1;
       color: #ffffff;
+      font-weight: 600;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
     .chat-header .close-chat {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
       cursor: pointer;
-      color: #ffffff;
+      color: rgba(255, 255, 255, 0.9);
       transition: all 0.3s var(--transition-ease);
-      padding: clamp(0.3rem, 1vw, 0.5rem);
+      padding: clamp(0.4rem, 1.2vw, 0.6rem);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      line-height: 1;
+      backdrop-filter: blur(5px);
     }
-    .chat-header .close-chat:hover, .chat-header .close-chat:active {
-      color: var(--accent);
-      transform: rotate(90deg);
+    .chat-header .close-chat:hover,
+    .chat-header .close-chat:active {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(90deg) scale(1.1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
     .chat-button {
-      background: var(--secondary);
-      border-radius: 0 0 12px 12px;
-      padding: clamp(6px, 2vw, 10px);
+      background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+      border-radius: 0 0 20px 20px;
+      padding: clamp(12px, 3vw, 16px);
       color: #ffffff;
-      font-weight: 600;
+      font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+      font-size: clamp(0.85rem, 2.2vw, 0.95rem);
       transition: all 0.3s var(--transition-ease);
       text-decoration: none;
       touch-action: manipulation;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .chat-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    .chat-button:hover::before,
+    .chat-button:active::before {
+      left: 100%;
     }
     .chat-button img {
-      width: clamp(16px, 4vw, 20px);
-      margin-right: 6px;
+      width: clamp(20px, 4.5vw, 24px);
+      height: clamp(20px, 4.5vw, 24px);
+      margin-right: 8px;
+      filter: brightness(0) invert(1);
     }
-    .chat-button:hover, .chat-button:active {
-      background: #1a6b1a;
-      transform: scale(1.03);
+    .chat-button:hover,
+    .chat-button:active {
+      background: linear-gradient(135deg, #128C7E, var(--whatsapp-green));
+      transform: scale(1.02);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+      color: #ffffff;
     }
     /* Animations */
     @keyframes pulse {
@@ -916,37 +1022,39 @@
       }
       .whatsapp-icon {
         bottom: clamp(10px, 3vw, 15px);
-        right: clamp(10px, 3vw, 15px);
+        left: clamp(10px, 3vw, 15px);
+        width: clamp(55px, 11vw, 65px);
+        height: clamp(55px, 11vw, 65px);
       }
       .whatsapp-icon img {
-        width: clamp(35px, 7vw, 45px);
-        height: clamp(35px, 7vw, 45px);
+        width: clamp(24px, 5.5vw, 28px);
+        height: clamp(24px, 5.5vw, 28px);
       }
       .whatsapp-chat-popup {
-        width: clamp(180px, 90vw, 240px);
-        bottom: clamp(60px, 10vw, 80px);
-        right: clamp(10px, 3vw, 15px);
+        width: clamp(260px, 95vw, 300px);
+        bottom: clamp(75px, 12vw, 90px);
+        left: clamp(10px, 3vw, 15px);
       }
       .chat-header {
-        padding: clamp(5px, 1.5vw, 8px);
+        padding: clamp(10px, 2.5vw, 14px);
       }
       .chat-header img {
-        width: clamp(18px, 4.5vw, 25px);
-        height: clamp(18px, 4.5vw, 25px);
+        width: clamp(20px, 5vw, 24px);
+        height: clamp(20px, 5vw, 24px);
       }
       .chat-header h6 {
-        font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
       }
       .chat-header .close-chat {
-        font-size: clamp(0.9rem, 2vw, 1.1rem);
-        padding: clamp(0.2rem, 0.8vw, 0.4rem);
+        font-size: clamp(1rem, 2.2vw, 1.2rem);
+        padding: clamp(0.3rem, 1vw, 0.5rem);
       }
       .chat-button {
-        padding: clamp(5px, 1.5vw, 8px);
-        font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+        padding: clamp(10px, 2.5vw, 14px);
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
       }
       .chat-button img {
-        width: clamp(14px, 3.5vw, 18px);
+        width: clamp(18px, 4vw, 20px);
       }
     }
     @media (min-width: 577px) and (max-width: 767px) {
@@ -1447,7 +1555,7 @@
   <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
   <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>
-  <!-- WhatsApp Chat Button -->
+  <!-- Premium WhatsApp Chat Button -->
   <div class="whatsapp-chat-popup" id="whatsapp-chat">
     <div class="chat-header">
       <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Icon" />
@@ -1455,7 +1563,7 @@
       <span class="close-chat" onclick="document.getElementById('whatsapp-chat').classList.remove('open')">&times;</span>
     </div>
     <a href="https://wa.me/255762658108" target="_blank" class="chat-button">
-      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" /> WhatsApp
+      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" /> Start Chat
     </a>
   </div>
   <div class="whatsapp-icon" onclick="document.getElementById('whatsapp-chat').classList.toggle('open')">

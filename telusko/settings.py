@@ -24,7 +24,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 # SECURITY
 SECRET_KEY = os.getenv('SECRET_KEY', 'aliwy-w)qwg1##ln(ig)j$s6oz#vp4zq4hm11ao$j9b!h6k*8x')
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
 # APPLICATIONS
@@ -78,30 +78,17 @@ TEMPLATES = [
 # WSGI
 WSGI_APPLICATION = 'telusko.wsgi.application'
 
-# ✅ DATABASE CONFIGURATION (PostgreSQL - Supabase)
-# DATABASE_URL = os.getenv(
-#     "DATABASE_URL",
-#     "postgresql://postgres:NyumbaChap@db.qcyyazosbftensualamm.supabase.co:5432/postgres"
-# )
 
-# DATABASES = {
-#     'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)
-# }
-
-
-
+#Database hii nilifungua kupitia Email ya Tawho(kwambianas@gmail.com)
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres', 
-        'USER': 'postgres.qcyyazosbftensualamm',  
-        'PASSWORD': 'NyumbaChap', 
-        'HOST': 'aws-1-us-east-2.pooler.supabase.com', 
-        'PORT': '5432',
-        'OPTIONS': {'sslmode': 'require'},  # hii inaruhusu SSL
-
-
+        'NAME': 'postgres',  # database name
+        'USER': 'postgres.rxlbupzsfxjnoymmaqzl',  # database user
+        'PASSWORD': 'NyumbaChap',  # database password
+        'HOST': 'aws-1-us-east-1.pooler.supabase.com',  # database host
+        'PORT': '5432',  # default PostgreSQL por
     }
 }
 
