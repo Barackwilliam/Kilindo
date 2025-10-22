@@ -24,7 +24,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 # SECURITY
 SECRET_KEY = os.getenv('SECRET_KEY', 'aliwy-w)qwg1##ln(ig)j$s6oz#vp4zq4hm11ao$j9b!h6k*8x')
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
 # APPLICATIONS
@@ -98,6 +98,9 @@ DATABASES = {
         'USER': 'postgres.qcyyazosbftensualamm',  
         'PASSWORD': 'NyumbaChap', 
         'HOST': 'aws-1-us-east-2.pooler.supabase.com', 
+        'PORT': '5432',
+        'OPTIONS': {'sslmode': 'require'},  # hii inaruhusu SSL
+
 
     }
 }
