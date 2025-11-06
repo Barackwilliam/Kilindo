@@ -24,7 +24,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 # SECURITY
 SECRET_KEY = os.getenv('SECRET_KEY', 'aliwy-w)qwg1##ln(ig)j$s6oz#vp4zq4hm11ao$j9b!h6k*8x')
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
 # APPLICATIONS

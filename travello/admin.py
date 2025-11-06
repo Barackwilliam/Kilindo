@@ -639,23 +639,23 @@ class BookingAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at",)
 
 
-from .models import UserVisit, UserActivity
+# from .models import UserVisit, UserActivity
 
 
-@admin.register(UserVisit)
-class UserVisitAdmin(admin.ModelAdmin):
-    list_display = ("ip_address", "country", "region", "city", "visit_count", "timestamp", "page_visited")
-    list_filter = ("country", "region", "city", "timestamp")
-    search_fields = ("ip_address", "page_visited", "user_agent")
-    ordering = ("-timestamp",)
+# @admin.register(UserVisit)
+# class UserVisitAdmin(admin.ModelAdmin):
+#     list_display = ("ip_address", "country", "region", "city", "visit_count", "timestamp", "page_visited")
+#     list_filter = ("country", "region", "city", "timestamp")
+#     search_fields = ("ip_address", "page_visited", "user_agent")
+#     ordering = ("-timestamp",)
 
 
-@admin.register(UserActivity)
-class UserActivityAdmin(admin.ModelAdmin):
-    list_display = ("visit", "activity_type", "activity_details", "timestamp")
-    list_filter = ("activity_type", "timestamp")
-    search_fields = ("visit__ip_address", "activity_details")
-    ordering = ("-timestamp",)
+# @admin.register(UserActivity)
+# class UserActivityAdmin(admin.ModelAdmin):
+#     list_display = ("visit", "activity_type", "activity_details", "timestamp")
+#     list_filter = ("activity_type", "timestamp")
+#     search_fields = ("visit__ip_address", "activity_details")
+#     ordering = ("-timestamp",)
 
 
 

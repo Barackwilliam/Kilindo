@@ -769,37 +769,37 @@ class Booking(models.Model):
 
 
 
-from django.db import models
+# from django.db import models
 
 
-class UserVisit(models.Model):
-    ip_address = models.GenericIPAddressField()
-    country = models.CharField(max_length=100, blank=True, null=True)
-    region = models.CharField(max_length=100, blank=True, null=True)
-    city = models.CharField(max_length=100, blank=True, null=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
-    visit_count = models.PositiveIntegerField(default=1)
-    user_agent = models.TextField(blank=True, null=True)
-    referrer = models.URLField(blank=True, null=True)
-    page_visited = models.URLField()
+# class UserVisit(models.Model):
+#     ip_address = models.GenericIPAddressField()
+#     country = models.CharField(max_length=100, blank=True, null=True)
+#     region = models.CharField(max_length=100, blank=True, null=True)
+#     city = models.CharField(max_length=100, blank=True, null=True)
+#     timestamp = models.DateTimeField(auto_now_add=True)
+#     visit_count = models.PositiveIntegerField(default=1)
+#     user_agent = models.TextField(blank=True, null=True)
+#     referrer = models.URLField(blank=True, null=True)
+#     page_visited = models.URLField()
 
-    class Meta:
-        ordering = ['-timestamp']
-        verbose_name = "User Visit"
-        verbose_name_plural = "User Visits"
+#     class Meta:
+#         ordering = ['-timestamp']
+#         verbose_name = "User Visit"
+#         verbose_name_plural = "User Visits"
 
-    def __str__(self):
-        return f"{self.ip_address} - {self.timestamp}"
+#     def __str__(self):
+#         return f"{self.ip_address} - {self.timestamp}"
 
 
-class UserActivity(models.Model):
-    visit = models.ForeignKey(UserVisit, on_delete=models.CASCADE, related_name='activities')
-    activity_type = models.CharField(max_length=50)
-    activity_details = models.TextField(blank=True, null=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
+# class UserActivity(models.Model):
+#     visit = models.ForeignKey(UserVisit, on_delete=models.CASCADE, related_name='activities')
+#     activity_type = models.CharField(max_length=50)
+#     activity_details = models.TextField(blank=True, null=True)
+#     timestamp = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"{self.visit.ip_address} - {self.activity_type}"
+#     def __str__(self):
+#         return f"{self.visit.ip_address} - {self.activity_type}"
 
 
 
