@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'jamiitek_middleware.JamiiTekStatusMiddleware',  # This one here
 
 ]
+
 # ROOT URL
 ROOT_URLCONF = 'telusko.urls'
 
@@ -85,17 +86,29 @@ WSGI_APPLICATION = 'telusko.wsgi.application'
 
 #Database hii nilifungua kupitia Email ya Tawho(kwambianas@gmail.com)
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',  # database name
+#         'USER': 'postgres.rxlbupzsfxjnoymmaqzl',  # database user
+#         'PASSWORD': 'NyumbaChap',  # database password
+#         'HOST': 'aws-1-us-east-1.pooler.supabase.com',  # database host
+#         'PORT': '5432',  # default PostgreSQL por
+#     }
+# }
+
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',  # database name
-        'USER': 'postgres.rxlbupzsfxjnoymmaqzl',  # database user
-        'PASSWORD': 'NyumbaChap',  # database password
-        'HOST': 'aws-1-us-east-1.pooler.supabase.com',  # database host
+        'USER': 'postgres.bediohbeiuhdkhevdmnq',  # database user
+        'PASSWORD': 'NyumbaChap@123',  # database password
+        'HOST': 'aws-0-eu-west-1.pooler.supabase.com',  # database host
         'PORT': '5432',  # default PostgreSQL por
     }
 }
-
 
 
 # PASSWORD VALIDATION
