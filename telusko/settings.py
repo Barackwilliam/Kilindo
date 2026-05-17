@@ -86,17 +86,6 @@ WSGI_APPLICATION = 'telusko.wsgi.application'
 
 #Database hii nilifungua kupitia Email ya Tawho(kwambianas@gmail.com)
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',  # database name
-#         'USER': 'postgres.rxlbupzsfxjnoymmaqzl',  # database user
-#         'PASSWORD': 'NyumbaChap',  # database password
-#         'HOST': 'aws-1-us-east-1.pooler.supabase.com',  # database host
-#         'PORT': '5432',  # default PostgreSQL por
-#     }
-# }
-
 
 
 DATABASES = {
@@ -136,17 +125,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# CLOUDINARY SETTINGS
-cloudinary.config(
-    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
-    api_key=os.getenv('CLOUDINARY_API_KEY'),
-    api_secret=os.getenv('CLOUDINARY_API_SECRET')
-)
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
-    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET')
+UPLOADCARE = {
+    'pub_key': 'cff49d484a4e0a5d423f',
+    'secret': 'f536e03e075f3a690e32',
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

@@ -17,7 +17,7 @@ class DestinationAdmin(admin.ModelAdmin):
         if db_field.name == 'image':
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',  # Badilisha na key yako halisi kama ni tofauti
+                'data-public-key': 'cff49d484a4e0a5d423f',  # Badilisha na key yako halisi kama ni tofauti
             })
         return formfield
 
@@ -60,7 +60,7 @@ class ServiceAdmin(admin.ModelAdmin):
         if db_field.name == 'image':
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02', 
+                'data-public-key': 'cff49d484a4e0a5d423f', 
             })
         return formfield
 
@@ -88,7 +88,7 @@ class TeamAdmin(admin.ModelAdmin):
         if db_field.name == 'image':
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02', 
+                'data-public-key': 'cff49d484a4e0a5d423f', 
             })
         return formfield
 
@@ -112,7 +112,7 @@ class UserTestimonialAdmin(admin.ModelAdmin):
         if db_field.name == 'image':
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -136,7 +136,7 @@ class StepForBookingAdmin(admin.ModelAdmin):
         if db_field.name == 'image':
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -162,7 +162,7 @@ class TravelAdmin(admin.ModelAdmin):
         if db_field.name == 'featured_image':
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -188,7 +188,7 @@ class GalleryAdmin(admin.ModelAdmin):
         if db_field.name == 'image':
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -215,7 +215,7 @@ class About_This_OrganizationAdmin(admin.ModelAdmin):
         if db_field.name == 'image':
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -250,7 +250,7 @@ class TourAdmin(admin.ModelAdmin):
         if db_field.name == 'featured_image':
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -292,7 +292,7 @@ class Trip_DBAdmin(admin.ModelAdmin):
         if db_field.name == 'featured_image':
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -351,7 +351,7 @@ class Welcome_textAdmin(admin.ModelAdmin):
         if db_field.name in ['image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'image_6']:
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -383,7 +383,7 @@ class companyAdmin(admin.ModelAdmin):
         if db_field.name == 'image':
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02', 
+                'data-public-key': 'cff49d484a4e0a5d423f', 
             })
         return formfield
 
@@ -408,7 +408,7 @@ class Kilimanjaro_climbing_imageAdmin(admin.ModelAdmin):
         if db_field.name in ['image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'image_6', 'image_7', 'image_8']:
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -439,7 +439,7 @@ class Explore_zanzibarAdmin(admin.ModelAdmin):
         if db_field.name in ['image']:
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -484,7 +484,7 @@ class Serengeti_migrationAdmin(admin.ModelAdmin):
         if db_field.name in ['image']:
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -528,7 +528,7 @@ class HoneymoonSafarisAdmin(admin.ModelAdmin):
         if db_field.name in ['image']:
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -575,7 +575,7 @@ class CampingSafarisAdmin(admin.ModelAdmin):
         if db_field.name in ['image']:
             formfield.widget.attrs.update({
                 'role': 'uploadcare-uploader',
-                'data-public-key': '76122001cca4add87f02',
+                'data-public-key': 'cff49d484a4e0a5d423f',
             })
         return formfield
 
@@ -637,27 +637,6 @@ class BookingAdmin(admin.ModelAdmin):
     search_fields = ("first_name", "last_name", "email", "country", "interested_in")
     ordering = ("-created_at",)
     readonly_fields = ("created_at",)
-
-
-# from .models import UserVisit, UserActivity
-
-
-# @admin.register(UserVisit)
-# class UserVisitAdmin(admin.ModelAdmin):
-#     list_display = ("ip_address", "country", "region", "city", "visit_count", "timestamp", "page_visited")
-#     list_filter = ("country", "region", "city", "timestamp")
-#     search_fields = ("ip_address", "page_visited", "user_agent")
-#     ordering = ("-timestamp",)
-
-
-# @admin.register(UserActivity)
-# class UserActivityAdmin(admin.ModelAdmin):
-#     list_display = ("visit", "activity_type", "activity_details", "timestamp")
-#     list_filter = ("activity_type", "timestamp")
-#     search_fields = ("visit__ip_address", "activity_details")
-#     ordering = ("-timestamp",)
-
-
 
 
 @admin.register(Headline)
