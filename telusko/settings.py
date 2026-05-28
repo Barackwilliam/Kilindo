@@ -84,7 +84,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'telusko.wsgi.application'
 
 
-#Database hii nilifungua kupitia Email ya Tawho(kwambianas@gmail.com)
+#Database hii nilifungua kupitia Email ya Tawho(kwambianas@gmail.com) kwa jina la TAWHO
 
 
 
