@@ -51,6 +51,9 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    # Compress HTML pages. Sits below WhiteNoise, which already serves
+    # pre-compressed static files and returns before reaching this.
+    'django.middleware.gzip.GZipMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -96,6 +99,10 @@ DATABASES = {
         'PASSWORD': 'NyumbaChap@123',  # database password
         'HOST': 'aws-0-eu-west-1.pooler.supabase.com',  # database host
         'PORT': '5432',  # default PostgreSQL por
+        # Reuse the database connection between requests instead of opening a
+        # new (slow, encrypted) connection to Supabase on every page view.
+        'CONN_MAX_AGE': 600,
+        'CONN_HEALTH_CHECKS': True,
     }
 }
 
@@ -124,6 +131,16 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Django 5.1+ ignores STATICFILES_STORAGE / DEFAULT_FILE_STORAGE and only reads
+# STORAGES. Without this, WhiteNoise served CSS/JS uncompressed.
+# CompressedStaticFilesStorage gzips files at collectstatic time; it skips the
+# strict manifest so a missing file referenced in a template can't 500 a page.
+# "default" stays exactly what Django was already using.
+STORAGES = {
+    "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+    "staticfiles": {"BACKEND": "whitenoise.storage.CompressedStaticFilesStorage"},
+}
 
 
 UPLOADCARE = {

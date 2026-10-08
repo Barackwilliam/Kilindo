@@ -313,7 +313,7 @@
           <a target="_blank"
              href="https://www.tripadvisor.com/Attraction_Review-g293748-d33985157-Reviews-Kilindo_Tours-Dar_es_Salaam_Dar_Es_Salaam_Region.html"
              style="display: inline-block; text-decoration: none;">
-            <img src="https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg"
+            <img loading="lazy" decoding="async" src="https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg"
                  alt="TripAdvisor"
                  style="width: 240px; transition: transform 0.4s ease; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));"
                  onmouseover="this.style.transform='scale(1.08)';"
@@ -371,7 +371,7 @@
       <div class="review-card">
         <!-- Profile Image -->
         <div class="review-image">
-          <img src="{{ test.image|default:'{% static "img/default-testimonial.jpg" %}' }}" alt="{{ test.Full_name }}">
+          <img loading="lazy" decoding="async" src="{{ test.image|default:'{% static "img/default-testimonial.jpg" %}' }}" alt="{{ test.Full_name }}">
         </div>
 
         <!-- Review Text -->
@@ -491,13 +491,16 @@
 </style>
 
 <!-- ================= SCRIPTS ================= -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<!-- Carousel: jQuery + Owl load only on pages that use them, without blocking rendering -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" defer></script>
 
 <script>
-  $(document).ready(function(){
+  document.addEventListener('DOMContentLoaded', function () {
+    var $ = window.jQuery;
+    if (!$ || !$.fn.owlCarousel) return;
     $(".review-carousel").owlCarousel({
       items: 1,
       loop: true,

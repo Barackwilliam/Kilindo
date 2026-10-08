@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static imgopt %}
 
 {% block content %}
 <style>
@@ -354,7 +354,7 @@
 
 {% if abouts %}
   {% for i in abouts %}
-  <section class="about-hero wow fadeIn" data-wow-delay="0.2s" {% if i.image %}style="background-image: url('{{ i.image }}');"{% else %}style="background-image: url('{% static "img/serengeti.jpg" %}');"{% endif %}>
+  <section class="about-hero wow fadeIn" data-wow-delay="0.2s" {% if i.image %}style="background-image: url('{{ i.image|ucare:1600 }}');"{% else %}style="background-image: url('{% static "img/serengeti.jpg" %}');"{% endif %}>
     <div class="content">
       <h1>{{ i.title }}</h1>
       <p>{{ i.content }}</p>
@@ -434,7 +434,7 @@
           <a target="_blank"
              href="https://www.tripadvisor.com/Attraction_Review-g293748-d33985157-Reviews-Kilindo_Tours-Dar_es_Salaam_Dar_Es_Salaam_Region.html"
              style="display: inline-block; text-decoration: none;">
-            <img src="https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg"
+            <img loading="lazy" decoding="async" src="https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg"
                  alt="TripAdvisor"
                  style="width: 240px; transition: transform 0.4s ease; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));"
                  onmouseover="this.style.transform='scale(1.08)';"
@@ -487,7 +487,7 @@
       {% for i in teams %}
       <div class="col-lg-3 col-md-6">
         <div class="team-item">
-          <img src="{{ i.image }}" alt="{{ i.Full_name }}">
+          <img loading="lazy" decoding="async" src="{{ i.image|ucare:500 }}" alt="{{ i.Full_name }}">
           <span class="badge">{{ i.designation }}</span>
           <div class="social-links">
             {% if i.facebook_link %}
